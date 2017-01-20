@@ -1,0 +1,50 @@
+\documentclass[12pt,twoside]{article}
+
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage[paperheight=11in,paperwidth=8in,outer=1in,inner=1in,bottom=.7in,top=.7in,includeheadfoot]{geometry}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\leftmark}
+\setlength{\headheight}{14.5pt}
+\raggedbottom
+
+\usepackage{subfiles}
+\usepackage{imakeidx}
+\makeindex[intoc]
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\input{../Packages.tex}
+
+%% Environments
+%%
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{proposition}[theorem]{Proposition}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{claim}{Claim}
+
+
+\theoremstyle{definition}
+\newtheorem*{notation}{Notation}
+\newtheorem{definition}[theorem]{Definition}
+%%
+%% End environments
+\openout0=lastupdated.html
+\write0{\today}
+\closeout0
