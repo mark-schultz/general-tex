@@ -1,0 +1,143 @@
+
+\usepackage{etex}                         % Allows more ``variables'' saved.
+\usepackage{amsmath,amssymb}       % Standard AMS packages
+\usepackage{accents}			                % \accentset{accent}{symbol} - Like \stackrel
+\usepackage{mathtools}										% \intertext{},\shortintertext{},\Aboxed{a&b}, extensible arrows
+\usepackage{mathrsfs} 	                  % Topology T
+\usepackage{empheq}                       % Allows modifications to most environments (like align).
+\usepackage{enumitem}			                % For \begin{enumerate}[resume] and [start = 3]
+%\usepackage{gitinfo}		                  % \gitAuthorName, \gitAuthorEmail, \gitAuthorDate
+\usepackage{mdframed}		                  % For nice question environment
+\usepackage{tikz}			                    % Same as above
+\usepackage{etoolbox}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\allowdisplaybreaks % Breaks align environments across pages
+%%%%%%%%%%%%%%%% Mark's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Greek Characters
+\newcommand{\Ga}{\Gamma}
+\newcommand{\ga}{\gamma}
+\newcommand{\e}{\varepsilon}
+\newcommand{\w}{\omega}
+\newcommand{\W}{\Omega}
+
+%% Fraktur Characters
+\newcommand{\mm}{\mathfrak{m}}
+\newcommand{\oldaa}{\aa}			%% accent a with a circle on top
+\renewcommand{\aa}{\mathfrak{a}}
+\newcommand{\bb}{\mathfrak{b}}
+%% Fields/Vector Spaces
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\RRe}{\RR\cup\Bqty{\infty}}
+\newcommand{\RRE}{\RR\cup\Bqty{\pm\infty}}
+\newcommand{\EE}{\mathbb{E}}
+%%
+%% Matrix Operators
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\newcommand{\matx}[1]{\bigl(\begin{smallmatrix} #1 \end{smallmatrix}\bigr)}
+\newcommand{\Matx}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\tr}{tr}
+%%
+%% Algebraic Structures
+\renewcommand{\H}{\mathcal{H}}  % old \H{x} is an x with a weird umlaut in text mode
+\newcommand{\mou}[1]{\ensuremath{\operatorname*{#1}}} %Math operator, limit underneath
+\newcommand{\mo}[1]{\ensuremath{\operatorname{#1}}} %Math operator normal
+\newcommand{\tee}{\mathscr{T}}  % Topology T
+\newcommand{\cl}[1]{\overline{#1}}
+\newcommand{\ii}{\mathbf{i}}		% Identity arithmetic function
+\newcommand{\B}{\mathcal{B}}  	% Borel Algebra
+\newcommand{\oldL}{\L}          % Some accented character
+\renewcommand{\L}{\mathcal{L}}	% Lesbegue Algebra
+\newcommand{\C}{\mathcal{C}}    % Cantor Set
+\newcommand{\I}{\mathcal{I}}		% Lebesgue Integrable functions.
+\newcommand{\A}{\mathcal{A}}	  % Functions that separate points
+\newcommand{\oldO}{\O} 					% 0 with line through it, ``fat emptyset''
+\renewcommand{\O}{\mathcal{O}}	% Integer ring of number field
+%%
+%% Math Operators
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Bl}{Bl}
+\DeclareMathOperator{\Frac}{Frac}
+\newcommand{\ber}[1]{\mo{Ber}\pqty{#1}}
+\newcommand{\Binom}[2]{\mo{Binom}\pqty{#1,#2}}
+\DeclareMathOperator{\diam}{diam}
+%%
+%% Legendre Symbol
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+%% Misc. Elementary Things
+\newcommand{\dd}{\,\mathrm{d}}	% Integral dx
+\def\<{\langle}
+\def\>{\rangle}
+\newcommand\der[2]{\frac{d #1}{d #2}}		% Derivative
+\newcommand\pder[2]{\frac{\partial #1}{\partial #2}} % Partial derivative
+\newcommand{\inv}{^{-1}}
+\let\existstemp\exists
+\let\foralltemp\forall
+\renewcommand*{\exists}{\existstemp\mkern2mu}
+\renewcommand*{\forall}{\foralltemp\mkern2mu} %%Better quantifier spacing
+%%
+%% Shorthand Stuff
+\newcommand{\Mark}[1]{[[\ensuremath{\bigstar\bigstar\bigstar} #1]]} %Sign to revisit after lecture
+\newcommand{\hhat}[1]{\widehat{#1}}
+\renewcommand{\labelitemi}{--}  % changes the default bullet in itemize
+\newcommand{\pqty}[1]{\left( #1 \right)} %Resizable Parenthesis
+\newcommand{\Bqty}[1]{\left\lbrace #1\right\rbrace} %Resizable Braces
+\newcommand{\vqty}[1]{\left\lVert #1 \right\rVert} %Norm symbol
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
+
+\newcommand{\Def}[1]{\textbf{#1}\index{#1}}
+%%%%%%%%%%%% End Mark's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Mark Schultz}
+
+%%%%%%%%%%% Box around Questions on Problem Sets %%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{Problem}
+\newcounter{SubProblem}[Problem]
+
+\global\mdfdefinestyle{problem}{%
+	linecolor=lightgray,linewidth=1pt,%
+	leftmargin=0cm,rightmargin=0cm,
+}
+\global\mdfdefinestyle{subproblem}{%
+	linecolor=lightgray,linewidth=1pt,%
+	leftmargin=.3cm,rightmargin=0cm,
+}
+
+
+\newenvironment{problem}[1][]{\refstepcounter{Problem}\par%
+	\mdfsetup{%
+		frametitle={\tikz\node[fill=white,rectangle,inner sep=0pt,outer sep=0pt]{Problem \arabic{Problem}};},
+		frametitleaboveskip=-0.5\ht\strutbox,
+		frametitlealignment=\raggedright
+	}%
+	\begin{mdframed}[style=problem]
+		}{\end{mdframed}}
+
+	\newenvironment{subproblem}[1][]{\refstepcounter{SubProblem}\par%
+		\mdfsetup{%
+			frametitle={\tikz\node[fill=white,rectangle,inner sep=0pt,outer sep=0pt]{Part \alph{SubProblem}};},
+			frametitleaboveskip=-0.5\ht\strutbox,
+			frametitlealignment=\raggedright,leftmargin=.5cm
+		}%
+		\begin{mdframed}[style=subproblem]}{\end{mdframed}}
+
+	\endinput
