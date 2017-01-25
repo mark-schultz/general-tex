@@ -52,9 +52,14 @@
 \newcommand{\Matx}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Gen}{Gen}
+\DeclareMathOperator{\Enc}{Enc}
+\DeclareMathOperator{\Dec}{Dec}
 %%
 %% Algebraic Structures
 \renewcommand{\H}{\mathcal{H}}  % old \H{x} is an x with a weird umlaut in text mode
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\K}{\mathcal{K}}
 \newcommand{\mou}[1]{\ensuremath{\operatorname*{#1}}} %Math operator, limit underneath
 \newcommand{\mo}[1]{\ensuremath{\operatorname{#1}}} %Math operator normal
 \newcommand{\tee}{\mathscr{T}}  % Topology T
@@ -105,7 +110,8 @@
 \newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
 
 \newcommand{\Def}[1]{\textbf{#1}\index{#1}}
-\newcommand{\lec}[1]{\textbf{LECTURE - #1}\newline}
+\newcommand{\lec}[1]{\begin{center}\textbf{LECTURE - #1}\end{center}}
+\newcommand{\URL}[1]{\href{#1}{\url{#1}}}	%% Displays and links to url
 %%%%%%%%%%%% End Mark's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{Mark Schultz}
