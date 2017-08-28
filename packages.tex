@@ -1,6 +1,6 @@
 
 \usepackage{etex}                         % Allows more ``variables'' saved.
-\usepackage{amsmath,amssymb}       % Standard AMS packages
+\usepackage{amsmath,amssymb}              % Standard AMS packages
 \usepackage{accents}			                % \accentset{accent}{symbol} - Like \stackrel
 \usepackage{mathtools}										% \intertext{},\shortintertext{},\Aboxed{a&b}, extensible arrows
 \usepackage{mathrsfs} 	                  % Topology T
@@ -18,103 +18,52 @@
 
 \allowdisplaybreaks % Breaks align environments across pages
 %%%%%%%%%%%%%%%% Mark's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%% Greek Characters
-\newcommand{\Ga}{\Gamma}
-\newcommand{\ga}{\gamma}
-\newcommand{\e}{\varepsilon}
-\newcommand{\w}{\omega}
-\newcommand{\W}{\Omega}
 
-%% Fraktur Characters
-\newcommand{\mm}{\mathfrak{m}}
-\newcommand{\oldaa}{\aa}			%% accent a with a circle on top
-\renewcommand{\aa}{\mathfrak{a}}
-\newcommand{\bb}{\mathfrak{b}}
 %% Fields/Vector Spaces
 \newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}} %% (open) Ball
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\E}{\mathbb{E}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\renewcommand{\H}{\mathbb{H}} %% Double end quotes I think
+\newcommand{\N}{\mathbb{N}}
 \renewcommand{\P}{\mathbb{P}}	%% Old is paragraph marking
 \newcommand{\Q}{\mathbb{Q}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\T}{\mathbb{T}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\E}{\mathbb{E}}
-\renewcommand{\H}{\mathbb{H}} %% Double end quotes I think
-\newcommand{\B}{\mathbb{B}} %% (open) Ball
-\newcommand{\G}{\mathbb{G}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Z}{\mathbb{Z}}
 %%
 %% Matrix Operators
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\im}{im}
-\newcommand{\matx}[1]{\bigl(\begin{smallmatrix} #1 \end{smallmatrix}\bigr)}
-\newcommand{\Matx}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\tr}{tr}
+
+
+%% CS Stuff
 \newcommand{\bin}{\{0,1\}}
+
+%% Paired delimiters
+\newcommand{\matx}[1]{\bigl(\begin{smallmatrix} #1 \end{smallmatrix}\bigr)}
+\newcommand{\Matx}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\bqty}[1]{\{ #1\}}
+\newcommand{\pqty}[1]{\left( #1 \right)} %Resizable Parenthesis
+\newcommand{\Bqty}[1]{\left\lbrace #1\right\rbrace} %Resizable Braces
+\newcommand{\vqty}[1]{\left\lVert #1 \right\rVert} %Norm symbol
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
 %%
-%% Category Theory stuff
-\newcommand{\catformat}[2]{\ensuremath{\mathfrak{#1}}\text{#2} }
-\newcommand{\set}{\catformat{S}{et}}
-\newcommand{\oldtop}{\top}		% Flipped \perp
-\renewcommand{\top}{\catformat{T}{op}}
-\newcommand{\man}{\catformat{M}{an}}
-\newcommand{\grp}{\catformat{G}{rp}}
-\newcommand{\abgrp}{\ensuremath{\mathfrak{A}}\text{b}\grp}
-\newcommand{\vect}{\catformat{V}{ect}}
-\newcommand{\metric}{\catformat{M}{etric}}
-\let\hom\relax		% AMSmath defines \hom similar to \log
-\DeclareMathOperator{\hom}{Hom}
-\DeclareMathOperator{\colim}{colim}
-\newcommand{\radjoint}{\vdash}		% Right adjoint
-\newcommand{\ladjoint}{\dashv}		% Left adjoint
-\newcommand{\opensub}{\stackrel{\text{open}}{\subseteq}}
-\newcommand{\closedsub}{\stackrel{\text{closed}}{\subseteq}}
-\newcommand{\actson}{\circlearrowright} % For topological group actions
-\newcommand{\consum}{\#}
 
-
-%% Algebraic Structures
-\newcommand{\Hh}{\mathcal{H}}
-\newcommand{\Mm}{\mathcal{M}}
-\newcommand{\Kk}{\mathcal{K}}
-\newcommand{\Ss}{\mathcal{S}}
-\newcommand{\mou}[1]{\ensuremath{\operatorname*{#1}}} %Math operator, limit underneath
+%% Quick math operators
 \newcommand{\mo}[1]{\ensuremath{\operatorname{#1}}} %Math operator normal
-\newcommand{\tee}{\mathscr{T}}  % Topology T
-\newcommand{\bee}{\mathscr{B}}	% Topology B for basis
-\newcommand{\cl}[1]{\overline{#1}}
-\newcommand{\ii}{\mathbf{i}}		% Identity arithmetic function
-\newcommand{\Bb}{\mathcal{B}}  	% Borel Algebra
-\newcommand{\oldL}{\L}          % Some accented character
-\newcommand{\Ll}{\mathcal{L}}	% Lesbegue Algebra
-\newcommand{\Cc}{\mathcal{C}}    % Cantor Set
-\newcommand{\Ii}{\mathcal{I}}		% Lebesgue Integrable functions.
-\newcommand{\Aa}{\mathcal{A}}	  % Functions that separate points
-\newcommand{\oldO}{\O} 					% 0 with line through it, ``fat emptyset''
-\newcommand{\Oo}{\mathcal{O}}	% Integer ring of number field
-\newcommand{\hh}{\mathfrak{h}}
+\newcommand{\mou}[1]{\ensuremath{\operatorname*{#1}}} %Math operator, limit underneath
 
-\newcommand{\surface}[2]{\langle #1\mid#2\rangle}  %Topology surface presentation
-%%
-%% Math Operators
-\DeclareMathOperator{\aut}{Aut}
-\DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\Mat}{Mat}
-\DeclareMathOperator{\SL}{SL}
-\DeclareMathOperator{\Bl}{Bl}
-\DeclareMathOperator{\Frac}{Frac}
-\newcommand{\ber}[1]{\mo{Ber}\pqty{#1}}
-\newcommand{\Binom}[2]{\mo{Binom}\pqty{#1,#2}}
-\DeclareMathOperator{\diam}{diam}
-%%
-%% Legendre Symbol
-\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
-%% Misc. Elementary Things
+
+%% Misc Elementary Things
+\newcommand{\cl}[1]{\overline{#1}}
 \newcommand{\dd}{\,\mathrm{d}}	% Integral dx
 \def\<{\langle}
 \def\>{\rangle}
@@ -125,17 +74,10 @@
 \let\foralltemp\forall
 \renewcommand*{\exists}{\existstemp\mkern2mu}
 \renewcommand*{\forall}{\foralltemp\mkern2mu} %%Better quantifier spacing
-%%
+
 %% Shorthand Stuff
 \newcommand{\Mark}[1]{[[\ensuremath{\bigstar\bigstar\bigstar} #1]]} %Sign to revisit after lecture
-\newcommand{\hhat}[1]{\widehat{#1}}
 \renewcommand{\labelitemi}{--}  % changes the default bullet in itemize
-\newcommand{\pqty}[1]{\left( #1 \right)} %Resizable Parenthesis
-\newcommand{\Bqty}[1]{\left\lbrace #1\right\rbrace} %Resizable Braces
-\newcommand{\vqty}[1]{\left\lVert #1 \right\rVert} %Norm symbol
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
-
 \newcommand{\Def}[1]{\textbf{#1}\index{#1}}
 \newcommand{\lec}[1]{\begin{center}\textbf{LECTURE - #1}\end{center}}
 \newcommand{\URL}[1]{\href{#1}{\url{#1}}}	%% Displays and links to url
